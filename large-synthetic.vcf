@@ -1,0 +1,9 @@
+rm -f fixtures/large.vcf
+
+{
+  echo "##fileformat=VCFv4.3"
+  echo -e "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
+  for i in $(seq 1 500000); do
+    echo -e "chr1\t$i\t.\tA\tG\t.\t.\t."
+  done
+} > fixtures/large-synthetic.vcf

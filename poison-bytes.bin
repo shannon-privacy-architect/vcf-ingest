@@ -1,0 +1,1 @@
+printf '\xff\xfe\x00\x01POISON' > fixtures/poison-bytes.bin

@@ -1,9 +1,23 @@
 # vcf-ingest
 
-A Rust-based, offline, privacy-preserving VCF ingestion and structural validation
-pipeline. The ingestion layer streams the VCF file in bounded chunks, performs
-deterministic structural checks, and zeroizes raw buffers immediately after use.
-No raw VCF data is ever logged, stored, or retained.
+A privacy-first ingestion boundary for genomic data.
+
+This project provides deterministic, offline ingestion and structural validation of VCF files while minimizing data exposure. Built in Rust, it streams VCF data in bounded chunks, performs deterministic structural checks, and zeroizes raw buffers immediately after use. No raw genomic data is logged, stored, or retained.
+
+---
+
+## Role in the Architecture
+
+This repository represents the ingestion boundary of a larger zero-custody architecture currently under development.
+
+Its responsibility is deliberately narrow:
+
+- Accept raw VCF input
+- Validate structure deterministically
+- Minimize data exposure
+- Pass validated records downstream
+
+Future layers may support privacy-preserving analytics, zero-knowledge workflows, interoperability pipelines, and additional genomic utilities.
 
 ---
 
@@ -136,7 +150,7 @@ transformations are intentionally out of scope.
 
 ---
 
-## Future Work
+## Roadmap
 
 - Optional semantic validation layer (Rust-only)
 - Optional canonical record output
